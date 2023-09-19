@@ -2,18 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<link rel="stylesheet" type="text/css" href="../static/Learner.css">-->
-    <!--<link rel="stylesheet" type="text/css" href="../static/Learner.css">-->
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='Learner.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}"> -->
-    <title>TechLink</title>
+     <title>TechLink</title>
 </head>
 <body>
    
     <header>
         <div class="hed">
-            <h3>TechLink</h3>   
+            <h3><a href="{{url_for('home')}}"> TechLink </a></h3>   
         </div>
     </header>
     <hr/>
@@ -28,8 +25,9 @@
 
         <div id="flex-container"> 
             <div class="Learner">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ullam praesentium itaque quos, deleniti nobis nulla inventore unde quidem sit, obcaecati ipsa quo dolore temporibus et excepturi natus numquam corporis.</p>
-                <button onclick="showSelector()" type="button">Find Tutor</button>
+                <p>Don't miss the opportunity to learn from the best in the tech industry. Whether you're looking to advance your career, start a new project, or simply satisfy your curiosity, our platform is your gateway to success.</p>
+                <p>Ready to take the first step in your tech journey? Explore our list of talented tech tutors and start learning today!</p>
+                 <button onclick="showSelector()" type="button">Find Tutor</button>
                 <br><br>
                 <div class="selector">
                     <form action="{{url_for('tutors')}}" method="POST">
@@ -48,7 +46,8 @@
 
             <div class="Tutor">
                 <div class="Tcontainer">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error vero accusantium architecto sint, quo nemo esse odio eos veniam, beatae neque, aspernatur tenetur explicabo similique vel impedit commodi? Officiis, est!</p>
+                    <p>Becoming a tech tutor is not just about teaching; it's about mentoring, inspiring, and shaping the future of tech. Together, we can create a world where everyone has the opportunity to unlock their full potential.</p>
+                    <p>Are you ready to make a difference? Join our community of tech tutors and start your teaching journey today!</p>
                     <button class="btn" onclick="showTreg()" type="button">Register</button>
                     <br/> <br/>
                     <div class="Treg" >
@@ -110,11 +109,7 @@
             var contreg = document.querySelector('.Treg');
             contreg.style.visibility = 'visible';
            
-            // Get a reference to the content elementm
-            //var content = document.getElementById("#Treg");
-            //content.style.visibility = 'visible';
-            //content.style.visibility.toggle("visible");
-            //content.classList.toggle("visible");
+           
 
            
         }

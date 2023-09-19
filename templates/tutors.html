@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='Learner.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!--    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}"> -->
     <title>TechLink</title>
 </head>
 <body>
     <header>
         <div class="hed">
-            <h3>TechLink</h3>   
+            <h3><a href="{{url_for('home')}}"> TechLink </a></h3>
+            <!--<h3>TechLink</h3>  --> 
         </div>
     </header>
 
     <div class="flex-con"> {% for id_list in id_lists %}
-       <!--<div id="flexcon-item"></div>-->
        <div id ="flexcon-item">   
                 <h4>Name: {{id_list.first_name}} {{id_list.last_name}}</h4>
                 <h4>Email: {{id_list.email}}</h4>
@@ -25,5 +24,6 @@
         </div> 
         {% endfor %}  
     </div>
+ 
 </body>
 </html>
