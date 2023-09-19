@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="../static/Learner.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="../static/Learner.css">-->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='Learner.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}"> -->
+    <title>TechLink</title>
+</head>
+<body>
+   
+    <header>
+        <div class="hed">
+            <h3>TechLink</h3>   
+        </div>
+    </header>
+    <hr/>
+    <div id="container">
+
+        <div class="slideshow-container">
+            <img class="slide" src="static/src/image1.jpg">
+            <img class="slide" src="static/src/image2.jpg">
+            <img class="slide" src="static/src/image3.jpg">
+            <img class="slide" src="static/src/image4.jpg">
+        </div>
+
+        <div id="flex-container"> 
+            <div class="Learner">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ullam praesentium itaque quos, deleniti nobis nulla inventore unde quidem sit, obcaecati ipsa quo dolore temporibus et excepturi natus numquam corporis.</p>
+                <button onclick="showSelector()" type="button">Find Tutor</button>
+                <br><br>
+                <div class="selector">
+                    <form action="{{url_for('tutors')}}" method="POST">
+                        <label for="skill">Skill:</label><br>
+                        <input type="text" id="skill" name="skill">
+                        <br><hr/><br>
+                        <label for="location">Location:</label><br>
+                        <input type="text" id="location" name="location" >
+                        <br><hr/><br>                       
+                        <input type="submit" value="Tutors">
+                    </form>
+                    <br/>
+                        
+                </div>
+            </div>  
+
+            <div class="Tutor">
+                <div class="Tcontainer">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error vero accusantium architecto sint, quo nemo esse odio eos veniam, beatae neque, aspernatur tenetur explicabo similique vel impedit commodi? Officiis, est!</p>
+                    <button class="btn" onclick="showTreg()" type="button">Register</button>
+                    <br/> <br/>
+                    <div class="Treg" >
+                        <form  action="{{url_for('identity')}}" method="POST">
+                            <label for="Fname">First Name:</label><br>
+                            <input type="text" id="Fname" name="first_name" required>
+                            <br><br>
+                            <label for="Lname">Last Name:</label><br>
+                            <input type="text" id="Lname" name="last_name" required>
+                            <br><br>
+                            <label for="email">Email:</label><br>
+                            <input type="email" id="email" name="email" required>
+                            <br><br>
+                            <label for="phonenum">Phone Number:</label><br>
+                            <input type="phonenum" id="phonenum" name="phone_number" required>
+                            <br><br>
+                            <label for="skill">Skill:</label><br>
+                            <input type="Skill" id="Skill" name="skill" required>
+                            <br><br>
+                            <label for="Location">Location:</label><br>
+                            <input type="Location" id="Location" name="location" required>
+                            <br><br>
+                            <input type="submit" value="Submit">
+                        </form>
+                        <br/>
+                    </div>    
+                </div>    
+            </div>
+                    
+        </div>
+    </div>
+    <footer>
+        <h3>TechLink</h3>
+    </footer>
+<script>
+        var slides = document.querySelectorAll('.slide');
+        var currentSlide = 0;
+        
+        function showSlide() {
+          slides[currentSlide].style.display = "none";
+          currentSlide = (currentSlide + 1) % (slides.length);
+          slides[currentSlide].style.display = "block";
+        }
+    
+        setInterval(showSlide, 5000); // Change slide every 5.0 seconds
+
+        function showElement() {
+            var update = document.querySelector('.alert');
+            update.style.visibility = 'visible'; 
+
+        }
+
+        function showSelector(){
+            var conselect = document.querySelector('.selector');
+            conselect.style.visibility = 'visible';
+        }
+
+        function showTreg(){
+            var contreg = document.querySelector('.Treg');
+            contreg.style.visibility = 'visible';
+           
+            // Get a reference to the content elementm
+            //var content = document.getElementById("#Treg");
+            //content.style.visibility = 'visible';
+            //content.style.visibility.toggle("visible");
+            //content.classList.toggle("visible");
+
+           
+        }
+
+</script>   
+</body>
+</html>
