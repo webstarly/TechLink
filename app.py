@@ -18,9 +18,8 @@ migrate = Migrate(app, db)
 
 app.config['SECRET_KEY'] = "a_secure_and_hard_secret_key"
 
-
-
 class Identity(db.Model):
+    '''Representation of Identity'''
     __tablename__ = 'identity'
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50),nullable=False)
@@ -33,6 +32,7 @@ class Identity(db.Model):
 
 
 def __init__(self, first_name, last_name, email, phone_number, skill, location):
+        '''initializes identity '''
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
@@ -43,6 +43,8 @@ def __init__(self, first_name, last_name, email, phone_number, skill, location):
 
 @app.route("/identity", methods = ['POST'])
 def identity():
+    '''creates an identity object from form input received and 
+      stores in the database '''
     if request.method == 'POST':    
         first_name = request.form['first_name']
         last_name = request.form['last_name']
@@ -60,45 +62,50 @@ def identity():
        
 @app.route("/tutors", methods=[ 'POST' , 'GET'])
 def tutors():
-
+    '''displays the content of the queried database on tutors page from form input 
+     received,else renders fail page if queried result does not match input '''
     id_lists = []
 
-    '''if request.method == 'POST':'''
-    location = request.form['location']
-    if location is None:
-        return render_template('homepage.html') 
+    location = request.form['location'] 
     skill = request.form['skill']
-    if skill is None:
-        return render_template('homepage.html')
                   
     identities = Identity.query.filter_by(location = location, skill = skill).all()
-        
-    for identity in identities:
-        id_lists.append({
-            'first_name' : identity.first_name,
-            'last_name':  identity.last_name,
-            'email': identity.email,
-            'phone_number': identity.phone_number,
-            'skill': identity.skill,
-            'location': identity.location
-        })
-        
-    return render_template('tutors.html', id_lists=id_lists) 
+
+    if identities:    
+        for identity in identities:
+            id_lists.append({
+                'first_name' : identity.first_name,
+                'last_name':  identity.last_name,
+                'email': identity.email,
+                'phone_number': identity.phone_number,
+                'skill': identity.skill,
+                'location': identity.location
+            })
+            
+        return render_template('tutors.html', id_lists=id_lists) 
+    return render_template('fail.html')
     
 
 @app.route('/', strict_slashes=False)
 def home():
+    '''returns the homepage'''
     return render_template('homepage.html') 
 
 @app.route('/home', strict_slashes=False)
 def homepage():
+    '''displays the homepage'''
     return render_template('homepage.html')
 
 
 @app.route('/success', strict_slashes=False)
 def success():
-        return render_template('success.html')
+    '''displays a success message'''    
+    return render_template('success.html')
 
+@app.route('/fail', strict_slashes=False)
+def fail():
+    '''display entries not found'''
+    return render_template('fail.html')
 
 if __name__ == '__main__':
     with app.app_context():
