@@ -1,21 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
 body{
     margin: 0px;
-    /*height:;*/
     width: 100%;
     padding: 0;
     background-color:  rgb(167, 156, 197) ;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    font-size: 12px;
 }
 
 
 .hed{
-    /* margin: ; */
     padding-top:1px;
     padding-bottom: 5px;
     height: 40px;
-    /* width: ; */
-    /* display:; */
     background-color: rgb(48, 45, 78) ;
 }
+
+a{
+    text-decoration-line: none;
+    color: white;
+}
+
+
+.btn {
+    display: block;
+    padding: 10px 20px; /* Adjust padding to control button size */
+    background-color:#00557e ; /* Background color */
+    color: #ffffff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+     /* Change cursor on hover */
+    font-size: 12px; /* Font size */
+    text-align: center;
+    text-decoration: none; /* Remove underlines from links */
+}
+
+.btn:hover {
+    background-color:  #0077b6; /* Change background color on hover */
+}
+
+.btn:active,
+.btn:focus{
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow on active/focus */
+}
+
+.btn:disabled {
+    background-color: #ccc; /* Change background color for disabled state */
+    color: #888; /* Change text color for disabled state */
+    cursor: not-allowed; /* Change cursor for disabled state */
+}
+
+
+input {
+    width: 50%; /* Set the width to 100% of the container */
+    padding: 10px; /* Add padding to create spacing inside the input */
+    margin: 5px 0; /* Add margin for spacing between input fields */
+    border: 1px solid #ccc; /* Add a border with a color */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 12px; /* Set the font size */
+}
+
+input[type="submit"] {
+    background-color: #00557e; /* Background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding for button size */
+    border: none; /* Remove the default button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 12px; /* Font size */
+}
+
+/* Style for submit button on hover */
+input[type="submit"]:hover {
+    background-color:#0077b6 ; /* Change background color on hover */
+}
+
+input[type="submit"]:disabled {
+    background-color: #ccc; /* Change background color for disabled elements */
+    color: #888; /* Change text color for disabled elements */
+    cursor: not-allowed; /* Change cursor for disabled elements */
+}
+
+
 
 h3{
     padding-left: 5px;
@@ -45,27 +114,17 @@ padding-top: 10px;
 
 #flex-container{
     display: flex;
-    justify-content: space-between;
-    /* align-items:; */
-    /* grid-template-columns:; */
-    
+    justify-content: space-between;    
 }
 
 .Learner{
-    /* height:; */
     width: 50%;
     padding-right: 20px;
     padding-left: 20px;
-    /* border :; */
-    /* position: ; */
-    /* align-items:; */
-    /* margin-top: ; */
 }
 
-.selector{
-    display: block;
-    visibility: hidden; 
-    /* position: ; */
+#selector{
+    display: none;
 }
 
 .alert{
@@ -74,55 +133,27 @@ padding-top: 10px;
 }
 
 .Tutor{
-    /* height:; */
     width: 50%;
     padding-right: 20px;
     padding-left: 20px;
     align-items: center; 
 }
 
-.Treg{
-    display: block;
-    visibility: hidden; 
-    /*position:  ; */ 
+#Treg{
+    display: none;
+    
     }
-/*
-.visible{
-    display: block;
-    visibility: visible;
-}
-*/
-/*.hidden{
-    /*display: none;*
-    visibility: visible;
-}*/
+
 
 footer{
     display: flex;
     justify-content: center;
     background-color: rgb(48, 45, 78);
-    /*position: ;*/
-}
-/*
-.flex-con{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.flexcon-item{
-    background-color: antiquewhite;
-    padding: 10px;
-}
-*/
-
-/* for tutors.html page
-*/
 .flex-con{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-   /* justify-content: space-between;*/
-    
+    grid-template-columns: repeat(4, 1fr); 
 }
 
 #flexcon-item{
@@ -131,6 +162,4 @@ footer{
     align-items: center;
     margin: 10px;
     height: 200px;
-    
-
 }

@@ -10,7 +10,7 @@
    
     <header>
         <div class="hed">
-            <h3><a href="{{url_for('home')}}"> TechLink </a></h3>   
+            <a href="{{url_for('home')}}"><h3>TechLink</h3></a>   
         </div>
     </header>
     <hr/>
@@ -22,14 +22,14 @@
             <img class="slide" src="static/src/image3.jpg">
             <img class="slide" src="static/src/image4.jpg">
         </div>
-
+        <br><hr/><br>
         <div id="flex-container"> 
             <div class="Learner">
                 <p>Don't miss the opportunity to learn from the best in the tech industry. Whether you're looking to advance your career, start a new project, or simply satisfy your curiosity, our platform is your gateway to success.</p>
                 <p>Ready to take the first step in your tech journey? Explore our list of talented tech tutors and start learning today!</p>
-                 <button onclick="showSelector()" type="button">Find Tutor</button>
+                 <button class="btn" onclick="showSelector()" type="button">Find Tutor</button>
                 <br><br>
-                <div class="selector">
+                <div id="selector">
                     <form action="{{url_for('tutors')}}" method="POST">
                         <label for="skill">Skill:</label><br>
                         <input type="text" id="skill" name="skill">
@@ -48,9 +48,9 @@
                 <div class="Tcontainer">
                     <p>Becoming a tech tutor is not just about teaching; it's about mentoring, inspiring, and shaping the future of tech. Together, we can create a world where everyone has the opportunity to unlock their full potential.</p>
                     <p>Are you ready to make a difference? Join our community of tech tutors and start your teaching journey today!</p>
-                    <button class="btn" onclick="showTreg()" type="button">Register</button>
+                    <button class ="btn" onclick="showTreg()" type="button">Register</button>
                     <br/> <br/>
-                    <div class="Treg" >
+                    <div id="Treg" >
                         <form  action="{{url_for('identity')}}" method="POST">
                             <label for="Fname">First Name:</label><br>
                             <input type="text" id="Fname" name="first_name" required>
@@ -79,41 +79,46 @@
                     
         </div>
     </div>
+    <br><hr/><br>
     <footer>
         <h3>TechLink</h3>
     </footer>
-<script>
-        var slides = document.querySelectorAll('.slide');
-        var currentSlide = 0;
+    <script>
+            //initializing 
+            var slides = document.querySelectorAll('.slide');
+            var currentSlide = 0;
+            
+            //slide effect
+            function showSlide() {
+            slides[currentSlide].style.display = "none";
+            currentSlide = (currentSlide + 1) % (slides.length);
+            slides[currentSlide].style.display = "block";
+            }
         
-        function showSlide() {
-          slides[currentSlide].style.display = "none";
-          currentSlide = (currentSlide + 1) % (slides.length);
-          slides[currentSlide].style.display = "block";
-        }
+            setInterval(showSlide, 2000); // Change slide every 2.0 seconds
+
+            //change onclick for class selector
+            function showSelector(){
+                var view = document.getElementById('selector');
+                if (view.style.display === "block"){
+                    view.style.display = "none";
+                }else{
+                    view.style.display = "block";
+                }
+            }
+
+            //change onclick for class Treg
+            function showTreg(){
+                var content = document.getElementById("Treg");
+                if (content.style.display === "block"){
+                    content.style.display = "none"
+                }
+                else{
+                    content.style.display = "block";
+                }
+                
+            };
     
-        setInterval(showSlide, 5000); // Change slide every 5.0 seconds
-
-        function showElement() {
-            var update = document.querySelector('.alert');
-            update.style.visibility = 'visible'; 
-
-        }
-
-        function showSelector(){
-            var conselect = document.querySelector('.selector');
-            conselect.style.visibility = 'visible';
-        }
-
-        function showTreg(){
-            var contreg = document.querySelector('.Treg');
-            contreg.style.visibility = 'visible';
-           
-           
-
-           
-        }
-
-</script>   
+    </script>   
 </body>
 </html>
