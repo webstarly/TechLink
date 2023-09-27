@@ -1,6 +1,7 @@
-from flask import Flask,render_template, jsonify,request, session, flash, url_for, redirect,json
+from flask import Flask,render_template,request, session, url_for, redirect,json
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
+
 from flask_migrate import Migrate
 
 
@@ -9,8 +10,7 @@ app.app_context().push()
 
 api = Api(app)
 
-
-app.config["SQLALCHEMY_DATABASE_URI"] =  "postgresql://techlinkdemo_user:9TTRfeyCNYkT2zj5zQrk8K4Y9ATPYuc7@dpg-ck5g5uui9prc73b9ug40-a.oregon-postgres.render.com/techlinkdemo"
+app.config["SQLALCHEMY_DATABASE_URI"] =  "postgresql://techlinkdb_user:ZQHS1NLBYTahjqDeIqFgLtJZE2W5SoEb@dpg-cka4l2ns0fgc73a7gfk0-a.oregon-postgres.render.com/techlinkdb"
 app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
 
 db = SQLAlchemy(app)
@@ -25,7 +25,7 @@ class Identity(db.Model):
     first_name = db.Column(db.String(50),nullable=False)
     last_name = db.Column(db.String(50),nullable=False)
     email = db.Column(db.String(50),nullable=False,unique=True)
-    phone_number = db.Column(db.BigInteger , nullable=False)
+    phone_number = db.Column(db.BigInteger(unsigned=True) , nullable=False)
     skill = db.Column(db.String(50), nullable=False)
     location = db.Column(db.String(50), nullable=False)
    
