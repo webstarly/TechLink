@@ -1,4 +1,5 @@
 from flask import Flask,render_template,request, session, url_for, redirect,json
+from sqlalchemy.dialects.mysql import BIGINT
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
@@ -25,7 +26,7 @@ class Identity(db.Model):
     first_name = db.Column(db.String(50),nullable=False)
     last_name = db.Column(db.String(50),nullable=False)
     email = db.Column(db.String(50),nullable=False,unique=True)
-    phone_number = db.Column(db.BigInteger(unsigned=True) , nullable=False)
+    phone_number = db.Column(BIGINT(unsigned=True) , nullable=False)
     skill = db.Column(db.String(50), nullable=False)
     location = db.Column(db.String(50), nullable=False)
    
