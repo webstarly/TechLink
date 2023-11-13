@@ -163,3 +163,29 @@ footer{
     margin: 10px;
     height: 200px;
 }
+
+
+/* Mobile devices (portrait and landscape) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 10px; /* Adjust font size for smaller screens */
+    }
+
+    .btn {
+        width: 100%; /* Make buttons full width on smaller screens */
+    }
+
+    input {
+        width: 100%; /* Make input fields full width on smaller screens */
+    }
+
+    .Learner,
+    .Tutor {
+        width: 100%;
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    #flex-container {
+        flex-direction: column; /* Stack flex items vertically on smaller screens */
+    }
+}
