@@ -172,13 +172,11 @@ footer{
     }
 
     .btn {
-        width: 80%; /* Make buttons full width on smaller screens */
-	padding-right: 10px;
+        width: 50%; /* Make buttons full width on smaller screens */
     }
 
     input {
         width: 80%; /* Make input fields full width on smaller screens */
-	padding-right: 10px;
     }
 
     .Learner,
